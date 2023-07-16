@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+
 class Expense {
   int? id;
   int? expenseAmount;
   String? expenseType;
   String? expenseReason;
   String? paidType;
+  DateTime? createdDate;
 
   Expense.empty();
 
@@ -14,16 +16,26 @@ class Expense {
       this.expenseAmount,
       this.expenseReason,
       this.paidType,
-      this.expenseType});
+      this.expenseType,
+      DateTime? createdDate})
+      : createdDate = createdDate ?? DateTime.now();
 
-   static final columns = ['id','expenseAmount','expenseReason','paidType','expenseType'];
+  static final columns = [
+    'id',
+    'expenseAmount',
+    'expenseReason',
+    'paidType',
+    'expenseType',
+    'createdDate'
+  ];
 
   Map toJson() {
     Map map = {
       'expenseAmount': expenseAmount,
       'expenseType': expenseType,
       'expenseReason': expenseReason,
-      'paidType': paidType
+      'paidType': paidType,
+      'createdDate': createdDate
     };
     if (id != null) {
       map['id'] = id;
@@ -38,6 +50,7 @@ class Expense {
     expense.expenseReason = map['expenseReason'];
     expense.expenseAmount = map['expenseAmount'];
     expense.expenseType = map['expenseType'];
+    expense.createdDate = map['createdDate'];
     return expense;
   }
 }

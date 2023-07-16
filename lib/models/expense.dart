@@ -16,7 +16,9 @@ class Expense {
       this.paidType,
       this.expenseType});
 
-  Map toMap() {
+   static final columns = ['id','expenseAmount','expenseReason','paidType','expenseType'];
+
+  Map toJson() {
     Map map = {
       'expenseAmount': expenseAmount,
       'expenseType': expenseType,
@@ -29,7 +31,7 @@ class Expense {
     return map;
   }
 
-  static fromMap(Map map) {
+  static fromJson(Map map) {
     Expense expense = Expense.empty();
     expense.id = map['id'];
     expense.paidType = map['paidType'];

@@ -58,9 +58,9 @@ class ExpensesDataBase {
     return expense;
   }
 
-  Future<int> deleteExpense(Expense expense) async{
+  Future<int> deleteExpense(int id) async{
     final db = await instance.database;
-    return await db.delete('expenses',where: 'id = ?',whereArgs:[expense.id]);
+    return await db.delete('expenses',where: 'id = ?',whereArgs:[id]);
   }
 
   Future<Expense> readExpense(int id)async{

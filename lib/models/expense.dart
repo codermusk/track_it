@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-
 class Expense {
-  final int id;
-  final int expenseAmount;
-  final String expenseType;
-  final String expenseReason;
-  final String paidType;
+  int? id;
+  int? expenseAmount;
+  String? expenseType;
+  String? expenseReason;
+  String? paidType;
 
-  Expense();
+  Expense.empty();
 
-  const Expense(
-      {required this.expenseAmount, required this.expenseReason, required this.paidType, this.expenseType });
+  Expense(
+      {this.id,
+      this.expenseAmount,
+      this.expenseReason,
+      this.paidType,
+      this.expenseType});
 
   Map toMap() {
     Map map = {
@@ -27,15 +30,12 @@ class Expense {
   }
 
   static fromMap(Map map) {
-    Expense expense = new Expense();
+    Expense expense = Expense.empty();
     expense.id = map['id'];
     expense.paidType = map['paidType'];
     expense.expenseReason = map['expenseReason'];
     expense.expenseAmount = map['expenseAmount'];
-    expense.expenseType = map['expenseType']
+    expense.expenseType = map['expenseType'];
     return expense;
   }
-
 }
-
-

@@ -1,11 +1,16 @@
+import 'package:async/async.dart';
+import 'package:path/path.dart' show join;
+import 'package:sqflite/sqflite.dart';
+import '../models/expense.dart';
+
 class ExpensesDataBase {
-  static final _databaseName = 'expenses.db';
-  static final _databaseVersion = 1;
+ static const _databaseName = 'expenses.db';
+ static const _databaseVersion = 1;
 
 // This Private constructor is used to maintain a single instance of the database class in order to maintain singleton instance
-  DatabaseHelper._private_constructor();
+  ExpensesDataBase._privateConstructor();
 
-  static final DatabaseHelper instance = DatabaseHelper._private_constructor();
+  static final ExpensesDataBase instance = ExpensesDataBase._privateConstructor();
 
   static Database? _database;
 
@@ -17,20 +22,26 @@ class ExpensesDataBase {
   }
 
   _initDatabase() async {
-    Directory path = getApplicationDocumentsDirectory();
-    String path = join(path.path, _databaseName);
+    final path = await getDatabasesPath();
+    String dbPath = join(path, _databaseName);
     return await openDatabase(
-        path, version: _databaseVersion, onCreate: _create);
+        dbPath, version: _databaseVersion, onCreate: _create);
   }
 
   Future _create(Database db, int version) async {
-    await _database.execute("""CREATE TABLE expense(
+    await db.execute("""CREATE TABLE expenses(
     id INTEGER PRIMARY KEY,
     expenseAmount INTEGER NOT NULL,
     expenseType TEXT,
     expenseReason TEXT,
     paidType TEXT
-    """)
+    """);
+  }
+
+  Future<List<Expense>> readAllExpense() async {
+    final db = await instance.database ;
+    final result = db.query('expenses');
+    return result.map((json)=>Expense.fromMap(json)).toList();
   }
 
 }

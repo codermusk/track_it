@@ -36,7 +36,8 @@ class ExpensesDataBase {
     expenseAmount INTEGER NOT NULL,
     expenseType TEXT,
     expenseReason TEXT NOT NULL,
-    paidType TEXT
+    paidType TEXT,
+    createdDate date
     """);
   }
 

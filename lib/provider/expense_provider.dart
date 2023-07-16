@@ -1,0 +1,3 @@
+class ExpensesProvider with ChangeNotifier {
+
+}

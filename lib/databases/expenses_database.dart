@@ -24,7 +24,13 @@ class ExpensesDataBase {
   }
 
   Future _create(Database db, int version) async {
-
+    await _database.execute("""CREATE TABLE expense(
+    id INTEGER PRIMARY KEY,
+    expenseAmount INTEGER NOT NULL,
+    expenseType TEXT,
+    expenseReason TEXT,
+    paidType TEXT
+    """)
   }
 
 }

@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-enum ExpenseType {
-  Personal,
-  Weekend,
-  Party,
-  FamilyExpense,
-  FriendsDayOut,
-  DailyNeeds
-}
-enum PaidType {
-  cash,
-  card,
-  upi
-}
-
 class Expense {
   final int id;
   final int expenseAmount;
-  final ExpenseType expenseType;
+  final String expenseType;
   final String expenseReason;
-  final PaidType paidType;
+  final String paidType;
 
   Expense();
 
@@ -49,7 +35,6 @@ class Expense {
     expense.expenseType = map['expenseType']
     return expense;
   }
-
 
 }
 

@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        fontFamily: 'Ubuntu',
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'Track IT...!!'),
     );
   }
 }
@@ -30,15 +32,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Padding(
+          padding: EdgeInsets.fromLTRB(10,20,0,0),
+          child: Row(
+            children: [
+              Icon(
+                Icons.currency_rupee,
+                size: 35,
+                color: Colors.blueAccent,
+              ),
+              Text(
+                'Track IT...!!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 34
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:track_it/screens/home_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,14 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-          ],
-        ),
-      ),
+      body: HomeView(),
     );
   }
 }

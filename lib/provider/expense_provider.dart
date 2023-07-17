@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import '../models/expense.dart';
 class ExpensesProvider with ChangeNotifier {
 var _expenses = [];
+var _income = 0 ;
 List<Expense> get expenses => [..._expenses];
+int get income => _income ;
 Future fetchAllExpenses() async{
   _expenses = await ExpensesDataBase.instance.readAllExpense();
   notifyListeners();
@@ -13,6 +15,7 @@ Future fetchAllExpenses() async{
 
  addExpense(Expense expense) async{
   await ExpensesDataBase.instance.insertExpense(expense);
+  _income-=expense.expenseAmount!;
   _expenses.add(expense);
   notifyListeners();
 }
@@ -34,5 +37,11 @@ Future fetchAllExpenses() async{
   final expenses = _expenses.where((element) => element.id == id);
   return expenses.first;
  }
+
+ addIncome(int amount) async{
+ _income+=amount ;
+ notifyListeners();
+ }
+
 
 }

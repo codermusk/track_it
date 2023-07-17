@@ -35,7 +35,6 @@ class ExpensesDataBase {
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     expenseAmount INTEGER NOT NULL,
     expenseType TEXT,
-    expenseReason TEXT NOT NULL,
     paidType TEXT,
     createdDate date
     """);

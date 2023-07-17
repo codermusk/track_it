@@ -5,7 +5,6 @@ class Expense {
   int? id;
   int? expenseAmount;
   String? expenseType;
-  String? expenseReason;
   String? paidType;
   DateTime? createdDate;
 
@@ -14,7 +13,6 @@ class Expense {
   Expense(
       {this.id,
       this.expenseAmount,
-      this.expenseReason,
       this.paidType,
       this.expenseType,
       DateTime? createdDate})
@@ -23,7 +21,6 @@ class Expense {
   static final columns = [
     'id',
     'expenseAmount',
-    'expenseReason',
     'paidType',
     'expenseType',
     'createdDate'
@@ -33,7 +30,6 @@ class Expense {
     Map map = {
       'expenseAmount': expenseAmount,
       'expenseType': expenseType,
-      'expenseReason': expenseReason,
       'paidType': paidType,
       'createdDate': createdDate
     };
@@ -47,7 +43,6 @@ class Expense {
     Expense expense = Expense.empty();
     expense.id = map['id'];
     expense.paidType = map['paidType'];
-    expense.expenseReason = map['expenseReason'];
     expense.expenseAmount = map['expenseAmount'];
     expense.expenseType = map['expenseType'];
     expense.createdDate = map['createdDate'];

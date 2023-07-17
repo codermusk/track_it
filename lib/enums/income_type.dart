@@ -1,0 +1,4 @@
+enum IncomeType{
+  salary,
+  lendedAmount,
+}

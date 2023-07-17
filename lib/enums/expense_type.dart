@@ -1,8 +1,7 @@
 enum ExpenseType {
   personal,
-  weekend,
-  party,
+  entertainment,
   familyExpense,
-  friendsDayOut,
-  dailyNeeds
+  dailyNeeds,
+  food
 }

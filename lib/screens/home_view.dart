@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../widgets/filter_widget.dart';
+import '../widgets/stats_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -12,9 +13,12 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return  Stack(
-      children:  [
-        GroupingExpenseWidget()
+    return  Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        GroupingExpenseWidget(),
+        Divider(color: Colors.transparent,),
+        StatsWidget(),
       ],
     );
   }

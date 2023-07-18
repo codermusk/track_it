@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class GroupingExpenseWidget extends StatelessWidget {
+class GroupingExpenseWidget extends StatefulWidget {
   const GroupingExpenseWidget({super.key});
 
+  @override
+  State<GroupingExpenseWidget> createState() => _GroupingExpenseWidgetState();
+}
+
+class _GroupingExpenseWidgetState extends State<GroupingExpenseWidget> {
   Widget _buildChip(String label) {
     return Container(
       padding: EdgeInsets.only(right: 20,left: 10),

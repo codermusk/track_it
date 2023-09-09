@@ -15,10 +15,10 @@ class _StatsWidgetState extends State<StatsWidget> {
       elevation: 10,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15)
+          borderRadius: BorderRadius.circular(25)
         ),
         height: 160,
-        width: 300,
+        width: 330,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
